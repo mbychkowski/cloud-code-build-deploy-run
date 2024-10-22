@@ -1,0 +1,22 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: client
+  annotations:
+    about: NextJS client
+  labels:
+    lang: typescript
+description: |
+  Delivery pipeline for CI CD apps/genai/client.
+serialPipeline:
+  stages:
+  - targetId: dev
+    profiles: [dev]
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: dev
+description: 01 Development Cloud Run target
+run:
+  location: projects/${PROJECT}/locations/us-central1
