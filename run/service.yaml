@@ -19,7 +19,7 @@ spec:
       timeoutSeconds: 300
       containers:
       - name: client
-        image: apps/genai/client
+        image: apps/client
         ports:
         - name: h2c
           containerPort: 3000

@@ -16,34 +16,21 @@ steps:
       echo "$BUILD_ID"
       echo "***********************"
 
-- name: gcr.io/k8s-skaffold/skaffold:v2.11.1
-  id: skaffoldBuild
-  args:
-    - 'skaffold'
-    - 'build'
-    - '--profile=dev'
-    - '--module=$_DEPLOY_PIPELINE'
-
 - id: 'cloudDeployDev'
   name: gcr.io/cloud-builders/gcloud
   entrypoint: bash
   dir: /workspace
-  waitFor:
-  - skaffoldBuild
   args:
   - '-c'
   - |
-      gcloud deploy releases create "$_DEPLOY_PIPELINE-$BUILD_ID"  \
-        --delivery-pipeline="$_DEPLOY_PIPELINE" \
-        --build-artifacts=/workspace/artifacts.json \
-        --skaffold-file="apps/$_DEPLOY_PIPELINE/skaffold.yaml" \
+      gcloud deploy releases create "$_SKAFFOLD_MODULE-$BUILD_ID"  \
+        --delivery-pipeline="$_SKAFFOLD_MODULE" \
+        --skaffold-file="src/skaffold.yaml" \
         --skaffold-version="2.11" \
-        --region="$LOCATION" &&
-        echo "$_DEPLOY_PIPELINE-$BUILD_ID" > "$_RELEASE_FILE_PATH"
+        --region="$LOCATION"
 
 options:
   # This allows for missing ENV variables.
   substitution_option: 'ALLOW_LOOSE'
 substitutions:
-  _ARTIFACT_REPO_NAME: cicd
   _DEPLOY_PIPELINE: client
