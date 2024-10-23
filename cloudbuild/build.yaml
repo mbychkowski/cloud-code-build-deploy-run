@@ -16,7 +16,7 @@ steps:
       echo "$BUILD_ID"
       echo "***********************"
 
-- name: gcr.io/k8s-skaffold/skaffold:v2.13
+- name: gcr.io/k8s-skaffold/skaffold:v2.13.2
   id: skaffoldBuild
   args:
     - 'skaffold'
