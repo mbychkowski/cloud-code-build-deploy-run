@@ -11,10 +11,6 @@ profiles:
     artifacts:
     - image: apps/frontend
       context: .
-      kaniko:
-        dockerfile: Dockerfile
-        image: gcr.io/kaniko-project/executor
-        cache: {}
   manifests:
     rawYaml:
       - ./run/*
