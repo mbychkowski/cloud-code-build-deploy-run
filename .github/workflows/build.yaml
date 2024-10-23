@@ -47,7 +47,7 @@ jobs:
       - name: 'Inplace environment variables'
         run: |
           sed -i "s/__PROJECT_ID__/${{ env.GCP_PROJECT_ID }}/g" skaffold.env
-          sed -i "S/__LOCATION__/${{ env.GCP_LOCATION }}/g" skaffold.env
+          sed -i "s/__LOCATION__/${{ env.GCP_LOCATION }}/g" skaffold.env
 
       - name: 'Submit CloudBuild with gcloud'
         run: |
