@@ -1,9 +1,5 @@
-apiVersion: skaffold/v4beta10
+apiVersion: skaffold/v4beta11
 kind: Config
-metadata:
-  name: genai-sandbox
 requires:
 - configs: ["frontend"]
   path: src/skaffold.yaml
-  activeProfiles:
-  - name: dev

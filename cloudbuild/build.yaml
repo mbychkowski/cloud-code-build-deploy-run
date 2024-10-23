@@ -16,7 +16,7 @@ steps:
       echo "$BUILD_ID"
       echo "***********************"
 
-- name: gcr.io/k8s-skaffold/skaffold:v2.11.1
+- name: gcr.io/k8s-skaffold/skaffold:v2.13
   id: skaffoldBuild
   args:
     - 'skaffold'
@@ -28,5 +28,4 @@ options:
   # This allows for missing ENV variables.
   substitution_option: 'ALLOW_LOOSE'
 substitutions:
-  _ARTIFACT_REPO_NAME: cicd
-  _SKAFFOLD_MODULE: client
+  _SKAFFOLD_MODULE: __SKAFFOLD_MODULE__

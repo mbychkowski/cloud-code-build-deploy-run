@@ -1,0 +1,24 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: frontend
+profiles:
+- name: dev
+  build:
+    googleCloudBuild: {}
+    tagPolicy:
+      gitCommit: {}
+    artifacts:
+    - image: apps/frontend
+      context: .
+      kaniko:
+        dockerfile: Dockerfile
+        image: gcr.io/kaniko-project/executor
+        cache: {}
+  manifests:
+    rawYaml:
+      - ./run/*
+  deploy:
+    cloudrun:
+      projectid: __PROJECT_ID__
+      region: us-central1
