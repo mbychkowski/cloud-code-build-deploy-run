@@ -7,7 +7,7 @@ source .env
 for SUCCINCT_ROLE in \
     artifactregistry.admin \
     cloudbuild.connectionAdmin \
-    cloudbuild.builds.builder \
+    cloudbuild.builds.editor \
     clouddeploy.jobRunner \
     clouddeploy.releaser \
     pubsub.subscriber \

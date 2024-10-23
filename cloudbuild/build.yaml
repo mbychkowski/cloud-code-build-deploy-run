@@ -27,5 +27,7 @@ steps:
 options:
   # This allows for missing ENV variables.
   substitution_option: 'ALLOW_LOOSE'
+  logging: CLOUD_LOGGING_ONLY
+
 substitutions:
   _SKAFFOLD_MODULE: __SKAFFOLD_MODULE__
