@@ -54,5 +54,4 @@ jobs:
           gcloud builds submit --config ./cloudbuild/build.yaml \
             --region ${{ env.GCP_LOCATION }} \
             --substitutions \
-              _PROJECT_ID=${{ env.GCP_PROJECT_ID }},\
-              _SKAFFOLD_MODULE=frontend
+            _PROJECT_ID=${{ env.GCP_PROJECT_ID }},_SKAFFOLD_MODULE=frontend
