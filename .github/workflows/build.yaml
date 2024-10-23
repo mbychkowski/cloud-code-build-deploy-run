@@ -44,10 +44,10 @@ jobs:
         with:
           version: '>= 363.0.0'
 
-      # - name: 'Inplace environment variables'
-      #   run: |
-      #     sed -i "s/__PROJECT_ID__/${{ env.GCP_PROJECT_ID }}/g" src/skaffold.yaml
-      #     sed -i "s/__SKAFFOLD_MODULE__/frontend/g" cloudbuild/build.yaml
+      - name: 'Inplace environment variables'
+        run: |
+          sed -i "s/__PROJECT_ID__/${{ env.GCP_PROJECT_ID }}/g" skaffold.env
+          sed -i "S/__LOCATION__/${{ env.GCP_LOCATION }}/g" skaffold.env
 
       - name: 'Submit CloudBuild with gcloud'
         run: |

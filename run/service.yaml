@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: run-genai-client
   labels:
-    cloud.googleapis.com/location: us-central1
+    cloud.googleapis.com/location: __LOCATION__
   annotations:
     run.googleapis.com/ingress: internal-and-cloud-load-balancing
 spec:

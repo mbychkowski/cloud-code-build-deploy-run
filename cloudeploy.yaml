@@ -19,4 +19,4 @@ metadata:
   name: dev
 description: 01 Development Cloud Run target
 run:
-  location: projects/${PROJECT_ID}/locations/us-central1
+  location: projects/__PROJECT_ID__/locations/__LOCATION__

@@ -21,4 +21,4 @@ profiles:
   deploy:
     cloudrun:
       projectid: __PROJECT_ID__
-      region: us-central1
+      region: __LOCATION__
